@@ -1,0 +1,29 @@
+{
+  "name": "shopify-start",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "vinxi dev",
+    "build": "vinxi build",
+    "start": "vinxi start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@tanstack/react-query": "^5.62.7",
+    "@tanstack/react-router": "^1.89.1",
+    "@tanstack/start": "^1.89.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "unenv": "^1.10.0",
+    "vinxi": "^0.5.1"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.1",
+    "@types/react-dom": "^19.0.2",
+    "typescript": "^5.7.2"
+  }
+}
