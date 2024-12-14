@@ -1,16 +1,17 @@
 // app/routes/index.tsx
 
 import { createFileRoute, useRouter } from '@tanstack/react-router'
-import { getCount, updateCount } from '../server/counter'
 
 import { getTodos } from '../server/todos'
+// import { updateCount } from '../server/counter'
 
 export const Route = createFileRoute('/')({
   component: Home,
   loader: async () => {
-    const [count, todos] = await Promise.all([getCount(), getTodos()])
+    // const [count, todos] = await Promise.all([getCount(), getTodos()])
+    const [todos] = await Promise.all([getTodos()])
     return {
-      count,
+      // count,
       todos,
     }
   },
@@ -22,7 +23,7 @@ function Home() {
 
   return (
     <div>
-      <button
+      {/* <button
         type="button"
         onClick={() => {
           updateCount({ data: 1 }).then(() => {
@@ -31,7 +32,7 @@ function Home() {
         }}
       >
         Add 1 to {state.count}?
-      </button>
+      </button> */}
       <div>{JSON.stringify(state.todos)}</div>
     </div>
   )
