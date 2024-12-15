@@ -1,8 +1,10 @@
 // app/routes/index.tsx
 
-import { createFileRoute, useRouter } from '@tanstack/react-router'
+import { useCreateTodo, useTodo } from '../hooks/todo.hook'
 
+import { createFileRoute } from '@tanstack/react-router'
 import { getTodos } from '../server/todos'
+
 // import { updateCount } from '../server/counter'
 
 export const Route = createFileRoute('/')({
@@ -18,22 +20,29 @@ export const Route = createFileRoute('/')({
 })
 
 function Home() {
-  const router = useRouter()
-  const state = Route.useLoaderData()
+  // const router = useRouter()
+  const { todos } = Route.useLoaderData()
+  const todo = useTodo('1')
+  const { mutate: createTodo } = useCreateTodo()
+
+  const handleCreateTodo = () => {
+    createTodo({
+      title: 'New Todo',
+      completed: false,
+      userId: 1,
+      id: 1,
+    })
+  }
 
   return (
     <div>
-      {/* <button
-        type="button"
-        onClick={() => {
-          updateCount({ data: 1 }).then(() => {
-            router.invalidate()
-          })
-        }}
-      >
-        Add 1 to {state.count}?
-      </button> */}
-      <div>{JSON.stringify(state.todos)}</div>
+      <button type="button" onClick={handleCreateTodo}>
+        Create Todo
+      </button>
+      <div>
+        <pre>{JSON.stringify(todo, null, 2)}</pre>
+        <pre>{JSON.stringify(todos, null, 2)}</pre>
+      </div>
     </div>
   )
 }

@@ -3,6 +3,7 @@ import { Meta, Scripts } from '@tanstack/start'
 import { Outlet, ScrollRestoration, createRootRoute } from '@tanstack/react-router'
 
 import type { ReactNode } from 'react'
+import { QueryProvider } from '../providers/QueryProvider'
 
 export const Route = createRootRoute({
   head: () => ({
@@ -24,9 +25,11 @@ export const Route = createRootRoute({
 
 function RootComponent() {
   return (
-    <RootDocument>
-      <Outlet />
-    </RootDocument>
+    <QueryProvider>
+      <RootDocument>
+        <Outlet />
+      </RootDocument>
+    </QueryProvider>
   )
 }
 
