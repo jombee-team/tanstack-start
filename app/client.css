@@ -1,0 +1,38 @@
+/* Add this to your global CSS file */
+:root {
+  /* Base font size (default is 14px) */
+  /* --p-font-size-100: 16px;  */
+
+  /* Typography scale */
+  /* --p-font-size-75: 0.75rem;
+  --p-font-size-100: 1rem;
+  --p-font-size-200: 1.143rem;
+  --p-font-size-300: 1.286rem;
+  --p-font-size-400: 1.571rem;
+  --p-font-size-500: 2rem;
+  --p-font-size-600: 2.571rem; */
+}
+
+.Polaris-Navigation__SectionHeading span {
+  font-weight: 600;
+}
+
+.Polaris-Navigation__Item span {
+  font-weight: 500;
+}
+
+.Polaris-Layout__AnnotatedSection h2 {
+  font-size: var(--p-font-size-400);
+}
+
+.Polaris-Layout__AnnotatedSection p {
+  font-size: 0.875rem;
+}
+
+.Polaris-Card__Section {
+  padding: 0;
+}
+
+button.Polaris-Button {
+  font-weight: 300;
+}

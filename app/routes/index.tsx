@@ -1,8 +1,8 @@
 // app/routes/index.tsx
 
+import { Link, createFileRoute } from '@tanstack/react-router'
 import { useCreateTodo, useTodo } from '../hooks/todo.hook'
 
-import { createFileRoute } from '@tanstack/react-router'
 import { getTodos } from '../server/todos'
 
 // import { updateCount } from '../server/counter'
@@ -39,6 +39,7 @@ function Home() {
       <button type="button" onClick={handleCreateTodo}>
         Create Todo
       </button>
+      <Link to="/examples">Examples</Link>
       <div>
         <pre>{JSON.stringify(todo, null, 2)}</pre>
         <pre>{JSON.stringify(todos, null, 2)}</pre>

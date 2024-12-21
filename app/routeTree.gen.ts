@@ -11,11 +11,18 @@
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
+import { Route as ExamplesImport } from './routes/examples'
 import { Route as AboutImport } from './routes/about'
 import { Route as SplatImport } from './routes/$'
 import { Route as IndexImport } from './routes/index'
 
 // Create/Update Routes
+
+const ExamplesRoute = ExamplesImport.update({
+  id: '/examples',
+  path: '/examples',
+  getParentRoute: () => rootRoute,
+} as any)
 
 const AboutRoute = AboutImport.update({
   id: '/about',
@@ -60,6 +67,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutImport
       parentRoute: typeof rootRoute
     }
+    '/examples': {
+      id: '/examples'
+      path: '/examples'
+      fullPath: '/examples'
+      preLoaderRoute: typeof ExamplesImport
+      parentRoute: typeof rootRoute
+    }
   }
 }
 
@@ -69,12 +83,14 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/$': typeof SplatRoute
   '/about': typeof AboutRoute
+  '/examples': typeof ExamplesRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/$': typeof SplatRoute
   '/about': typeof AboutRoute
+  '/examples': typeof ExamplesRoute
 }
 
 export interface FileRoutesById {
@@ -82,14 +98,15 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/$': typeof SplatRoute
   '/about': typeof AboutRoute
+  '/examples': typeof ExamplesRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/$' | '/about'
+  fullPaths: '/' | '/$' | '/about' | '/examples'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/$' | '/about'
-  id: '__root__' | '/' | '/$' | '/about'
+  to: '/' | '/$' | '/about' | '/examples'
+  id: '__root__' | '/' | '/$' | '/about' | '/examples'
   fileRoutesById: FileRoutesById
 }
 
@@ -97,12 +114,14 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   SplatRoute: typeof SplatRoute
   AboutRoute: typeof AboutRoute
+  ExamplesRoute: typeof ExamplesRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   SplatRoute: SplatRoute,
   AboutRoute: AboutRoute,
+  ExamplesRoute: ExamplesRoute,
 }
 
 export const routeTree = rootRoute
@@ -117,7 +136,8 @@ export const routeTree = rootRoute
       "children": [
         "/",
         "/$",
-        "/about"
+        "/about",
+        "/examples"
       ]
     },
     "/": {
@@ -128,6 +148,9 @@ export const routeTree = rootRoute
     },
     "/about": {
       "filePath": "about.tsx"
+    },
+    "/examples": {
+      "filePath": "examples.tsx"
     }
   }
 }
