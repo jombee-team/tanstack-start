@@ -42,6 +42,7 @@ function RootDocument({ children }: Readonly<{ children: ReactNode }>) {
     <html>
       <head>
         <Meta />
+        <link rel="preconnect" href="https://cdn.shopify.com/" />
         <link rel="stylesheet" href="https://cdn.shopify.com/static/fonts/inter/v4/styles.css" />
       </head>
       <body>
