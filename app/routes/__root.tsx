@@ -3,8 +3,10 @@ import { Meta, Scripts } from '@tanstack/start'
 import { Outlet, ScrollRestoration, createRootRoute } from '@tanstack/react-router'
 
 import { AppProvider } from '@shopify/polaris'
+import POLARIS_CSS from '@shopify/polaris/build/esm/styles.css?url'
 import enTranslations from '@shopify/polaris/locales/en.json'
 import type { ReactNode } from 'react'
+import CLIENT_CSS from '../client.css?url'
 import { QueryProvider } from '../providers/QueryProvider'
 
 export const Route = createRootRoute({
@@ -20,6 +22,10 @@ export const Route = createRootRoute({
       {
         title: 'TanStack Start Starter',
       },
+    ],
+    links: [
+      { rel: 'stylesheet', href: CLIENT_CSS },
+      { rel: 'stylesheet', href: POLARIS_CSS },
     ],
   }),
   component: RootComponent,
