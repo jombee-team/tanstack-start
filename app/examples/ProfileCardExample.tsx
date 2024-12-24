@@ -20,7 +20,7 @@ export function ProfileCardExample() {
                 Rob Taylor
               </Text>
               <Text as="p" variant="bodyMd" tone="subdued">
-                <a href="mailto:rob@jombee.io">rob@jombee.io</a>
+                <a href="https://x.com/roboncode">@roboncode</a>
               </Text>
               <Text as="p" variant="bodyMd" tone="subdued">
                 English
